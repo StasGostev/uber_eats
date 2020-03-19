@@ -1,0 +1,25 @@
+.control {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 50px;
+  transition: box-shadow 0.3s;
+
+  &--focused {
+    box-shadow: 0 0 20px #5fb709;
+  }
+
+  &__icon {
+    widows: 14px;
+    height: 14px;
+    margin-right: 10px;
+  }
+
+  & ::placeholder {
+    color: black;
+  }
+  
+  & + & {
+    margin-left: 10px;
+  }
+}
