@@ -1,4 +1,5 @@
 {
+  "homepage" : "https://stasgostev.github.io/uber_eats/.",
   "name": "uber_eats",
   "version": "0.1.0",
   "private": true,
@@ -7,7 +8,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.9",
-    "gh-pages": "^2.1.1",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -22,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
