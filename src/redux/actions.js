@@ -20,14 +20,6 @@ const setInputValue = (name, value) => ({
   name
 });
 
-export const getTime = () => dispatch => {
-  let date = new Date();
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  minutes = minutes < 10 ? `0${minutes}` : minutes;
-  let timeNow = `${hours}:${minutes}`;
-  dispatch(setInputValue('time', timeNow));
-};
 export const changeInputValue = (name, value) => dispatch => {
   dispatch(setInputValue(name, value));
 };
