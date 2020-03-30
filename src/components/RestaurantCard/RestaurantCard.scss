@@ -1,6 +1,7 @@
-$card-height: 367px;
+$card-lg-height: 367px;
+$card-mobile-height: 330px;
 .restaurant-card {
-  height: $card-height;
+  height: $card-lg-height;
   width: 100%;
   cursor: pointer;
   
@@ -14,7 +15,7 @@ $card-height: 367px;
   }
 
   &__img {
-    height: $card-height * 0.7;
+    height: $card-lg-height * 0.7;
     width: 100%;
     object-fit: cover;
     transition: transform 0.3s;
@@ -39,11 +40,17 @@ $card-height: 367px;
   }
 }
 
-@media (max-width:400px) {
+@media (max-width: 400px) {
   .restaurant-card {
+    height: $card-mobile-height;
+
     &__img-wrapper {
-      height: 220px;
-      width: 280px;
+      height: 224px;
+      max-width: 280px;
+    }
+
+    &__img {
+      height: $card-mobile-height * 0.7;
     }
   }
 }
