@@ -1,5 +1,12 @@
 import React from 'react';
 import './Footer.scss';
+import { Select } from '../Select/Select';
+
+const languages = [
+  {value: 'En', label: 'English'},
+  {value: 'Jp', label: 'Japanese'},
+  {value: 'Ua', label: 'Ukrainian'}
+];
 
 export const Footer = () => {
   return (
@@ -13,7 +20,9 @@ export const Footer = () => {
                 src='./images/logo-white.svg'
                 alt='uber eats'
               />
-              <div className='footer__lang'>Language</div>
+              <div className='select'>
+              <Select name='Language' options={languages} />
+              </div>
             </div>
 
             <div className='footer__mobile-apps'>
@@ -50,7 +59,7 @@ export const Footer = () => {
         <div className='footer__separator'></div>
 
         <div className='footer__bottom'>
-          <p className='footer__copyrights'>© 2019 Uber Technologies Inc.a</p>
+          <p className='footer__copyrights'>© 2019 Uber Technologies Inc.</p>
           <div className='footer__misc'>
             <div className='footer__bottom-links links'>
               <a className='links__link' href='#'>

@@ -1,9 +1,10 @@
 import { Header } from './Header';
 import { changeInputValue } from '../../redux/actions';
 import { connect } from 'react-redux';
+import { selectInputValues } from '../../redux/selectors';
 
 const mapState2props = (state) => ({
-  inputValues: state.inputValues
+  inputValues: selectInputValues(state),
 });
 
 const mapDispatch2props = {

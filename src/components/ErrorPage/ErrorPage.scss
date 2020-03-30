@@ -1,0 +1,46 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 200px auto;
+  min-height: 70vh;
+
+  
+  &__heading {
+    display: flex;
+    font-size: 6em;
+    animation: heart-puls 2s linear infinite; 
+  }
+  &__text {
+    font-size: 4em;
+  }
+
+  &__link {
+    display: block;
+    padding: 12px 20px;
+    background-color: green;
+    border-radius: 10px;
+    margin-top: 50px;
+    transition: box-shadow 0.3s;
+    &:hover {
+      text-decoration: underline;
+      box-shadow: 0 0 20px grey;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes heart-puls {
+  0% {
+    text-shadow: 0 0 3px red;
+  }
+  20% {
+    text-shadow: 0 0 10px red;
+  }
+  25% {
+    text-shadow: 0 0 7px red;
+  }
+  45% {
+    text-shadow: 0 0 10px red;
+  }
+}

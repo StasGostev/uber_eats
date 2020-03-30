@@ -4,27 +4,72 @@ import './Header.scss';
 import { Input } from '../Input/Input';
 
 export class Header extends Component {
+  state = {
+    isMobileSearchVisible: false,
+    isMobileDeliveryVisible: false,
+    isPressed: false
+  };
+
   componentDidMount() {
     const formatTime = () => {
       const checkFormat = t => {
         return t < 10 ? `0${t}` : t;
-      }  
+      };
       let date = new Date();
       let hours = checkFormat(date.getHours());
       let minutes = checkFormat(date.getMinutes());
 
       return `${hours}:${minutes}`;
-    }
+    };
 
     this.props.changeInputValue('time', formatTime());
-  };
+  }
 
   handleChange = ({ target }) => {
     this.props.changeInputValue(target.name, target.value);
   };
 
+  toggleSearch = () => {
+    this.setState(state => {
+      const { isMobileSearchVisible } = state;
+      return {
+        isMobileSearchVisible: !isMobileSearchVisible,
+        isMobileDeliveryVisible: false
+      };
+    });
+  };
+
+  pressBtnHandler = (bool) => {
+    return this.setState({ isPressed: bool });
+  };
+
+  toggleDelivery = () => {
+    this.setState(state => {
+      const { isMobileDeliveryVisible } = state;
+      return {
+        isMobileDeliveryVisible: !isMobileDeliveryVisible,
+        isMobileSearchVisible: false
+      };
+    });
+  };
+
+  closeMobileControls = () => {
+    this.setState({
+      isMobileDeliveryVisible: false,
+      isMobileSearchVisible: false
+    });
+  };
+
   render() {
     const { address, time, search } = this.props.inputValues;
+    const {
+      isMobileDeliveryVisible,
+      isMobileSearchVisible,
+      isPressed
+    } = this.state;
+    const sigInClass = `header__link ${
+      isPressed ? `header__link--pressed` : ''
+    }`;
 
     return (
       <header className='header'>
@@ -52,18 +97,95 @@ export class Header extends Component {
                 type='time'
               />
             </div>
-            <Input
-              name='search'
-              onChange={this.handleChange}
-              value={search}
-              placeholder='Search'
-              iconUrl='./images/search.svg'
-              className='header__search'
-            />
-            <a className='header__link' href='/sign-in'>
+            <div className='header__search'>
+              <Input
+                name='search'
+                onChange={this.handleChange}
+                value={search}
+                placeholder='Search'
+                iconUrl='./images/search.svg'
+                className='header__search-input'
+              />
+            </div>
+            <div className='header__toggle-buttons'>
+              <button
+                className='header__toggle-btn'
+                onClick={this.toggleDelivery}
+              >
+                <img
+                  src='./images/place.svg'
+                  alt='location'
+                  className='header__toggle-icon'
+                />
+              </button>
+              <button
+                className='header__toggle-btn'
+                onClick={this.toggleSearch}
+              >
+                <img
+                  src='./images/search.svg'
+                  alt='search'
+                  className='header__toggle-icon'
+                />
+              </button>
+            </div>
+            <a
+              className={sigInClass}
+              href='#'
+              onMouseDown={() => this.pressBtnHandler(true)}
+              onMouseUp={() => this.pressBtnHandler(false)}
+            >
               Sign In
             </a>
           </div>
+          {(isMobileDeliveryVisible || isMobileSearchVisible) && (
+            <div className='header__mobile-controls mobile-controls'>
+              {isMobileSearchVisible && (
+                <div className='header__mobile-search'>
+                  <Input
+                    name='search'
+                    onChange={this.handleChange}
+                    value={search}
+                    placeholder='Search'
+                    iconUrl='./images/search.svg'
+                    className='header__search-input'
+                  />
+                </div>
+              )}
+
+              {isMobileDeliveryVisible && (
+                <>
+                  <Input
+                    label='Where'
+                    name='address'
+                    onChange={this.handleChange}
+                    value={address}
+                    placeholder='Address'
+                    iconUrl='./images/place.svg'
+                  />
+                  <Input
+                    label='To'
+                    name='time'
+                    onChange={this.handleChange}
+                    value={time}
+                    placeholder='Deliver now'
+                    iconUrl='./images/time.svg'
+                    type='time'
+                  />
+                </>
+              )}
+              <button
+                className='mobile-controls__close'
+                onClick={this.closeMobileControls}
+              >
+                <img
+                  src='./images/close.svg'
+                  alt='close'
+                  className='mobile-controls__close-btn'
+                />
+              </button>
+            </div>
+          )}
         </div>
       </header>
     );
@@ -71,7 +193,7 @@ export class Header extends Component {
 }
 
 Header.propTypes = {
-  changeRestaurantList: PropTypes.func.isRequired,
+  changeInputValue: PropTypes.func.isRequired,
   inputValues: PropTypes.object
 };
 

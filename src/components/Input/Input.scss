@@ -1,3 +1,5 @@
+$box-hightlight-grey: #272727;
+
 .control {
   display: flex;
   align-items: center;
@@ -6,11 +8,11 @@
   transition: box-shadow 0.3s;
 
   &--focused {
-    box-shadow: 0 0 5px grey;
+    box-shadow: 0 0 5px $box-hightlight-grey;
   }
 
   &__icon {
-    widows: 14px;
+    width: 14px;
     height: 14px;
     margin-right: 10px;
   }
@@ -19,6 +21,11 @@
     color: black;
   }
   
+  &__input {
+    @media(max-width: 980px) {
+      max-width: 80px; 
+    }
+  }
   & + & {
     margin-left: 10px;
   }

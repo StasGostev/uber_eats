@@ -9,18 +9,19 @@ export const selectRestaurantsList = createSelector(
       return [];
     } else {
       const { feedItems, storesMap } = restaurantsListData;
-      const { search } = inputValues
+      const { search } = inputValues;
       const restaurantsList = feedItems.map(({ uuid }) => storesMap[uuid]);
 
       if (search) {
         const searchFilter = restaurant => {
           const { title, categories } = restaurant;
+          const searchToLowerCase = search.toLowerCase();
           return (
-            title.toLowerCase().startsWith(search) ||
+            title.toLowerCase().startsWith(searchToLowerCase) ||
             categories
               .join()
               .toLowerCase()
-              .includes(search)
+              .includes(searchToLowerCase)
           );
         };
 
@@ -30,4 +31,19 @@ export const selectRestaurantsList = createSelector(
       return restaurantsList;
     }
   }
+);
+
+export const selectRestauranrListError = createSelector(
+  rootSelector,
+  ({ error }) => error
+);
+
+export const selectIsLoading = createSelector(
+  rootSelector,
+  ({ isLoading }) => isLoading
+);
+
+export const selectInputValues = createSelector(
+  rootSelector,
+  ({inputValues}) => inputValues
 );

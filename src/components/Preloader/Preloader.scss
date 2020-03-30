@@ -1,0 +1,44 @@
+// @import '../../index.scss';
+.preloader {
+  width:600px;
+  font-size: 4em;
+  color: #292929;
+  margin: 20vh auto;
+  min-height: 70vh;
+
+  &__char {
+    position:absolute;
+    opacity:0;
+    font-family:Helvetica, Arial, sans-serif;
+    animation:moveChars 4s linear infinite;
+  
+    @for $i from 1 through 700 {
+      &:nth-child(#{$i}) { 
+        animation-delay: #{0.3 * $i}s;
+      }
+    } 
+  }
+}
+ 
+@keyframes moveChars {
+  0% {
+    left:10%;
+    opacity:0;
+    transform:rotate(180deg)
+  }
+    40% {
+        left: 41%;
+        transform:rotate(0);
+        opacity:1;
+    }
+    80% {
+        left:59%;
+        transform:rotate(0); 
+        opacity:1;
+    }
+    100% {
+        left:90%; 
+        transform:rotate(-180deg);
+        opacity:0;
+    }
+}

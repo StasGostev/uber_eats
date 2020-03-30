@@ -1,0 +1,23 @@
+.select {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  border: 1px solid #979797;
+  padding: 8px 12px;
+
+  &__menu {
+  position: relative;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  line-height: 19px;
+  width: 125px;
+  }
+
+  &__option{
+    background-color: #262626;
+  }
+  &__logo {
+    margin-right: 10px;
+  }
+}

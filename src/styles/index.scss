@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-body, button, a, input {
+body, button, a, input, select {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -17,6 +17,11 @@ input {
 a {
   text-decoration: none;
   color: white;
+}
+
+button {
+  border: none;
+  background: none;
 }
 
 .content {

@@ -52,7 +52,13 @@
   }
 
   &__bottom-links > .links__link {
-    margin-right: 48px;
+    &:not(:last-of-type) {
+      margin-right: 48px;
+    }
+  }
+
+  &__copyrights {
+    font-size: 14px;
   }
 
 }

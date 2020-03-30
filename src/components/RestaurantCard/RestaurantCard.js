@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './RestaurantCard.scss';
 
 export const RestaurantCard = props => {
-  const { imageUrl, uuid, etaRange, title, categories } = props;
+  const { imageUrl, etaRange, title, categories } = props;
   return (
     <div className='restaurant-card'>
       <div className='restaurant-card__img-wrapper'>
