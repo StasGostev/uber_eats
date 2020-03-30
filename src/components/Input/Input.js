@@ -1,6 +1,6 @@
-import React, { PureComponent, createRef } from 'react';
-import PropTypes from 'prop-types';
-import './Input.scss';
+import React, { PureComponent, createRef } from "react";
+import PropTypes from "prop-types";
+import "./Input.scss";
 
 export class Input extends PureComponent {
   state = {
@@ -24,24 +24,22 @@ export class Input extends PureComponent {
       placeholder,
       className,
       label,
-      mobile
     } = this.props;
     const { isFocused } = this.state;
-    const rootClass = `control ${
-      isFocused ? 'control--focused' : ''
+    const controlInputWrapper = `control__input-wrapper ${
+      isFocused ? "control__input-wrapper--focused" : ""
     } ${className}`;
 
     return (
-      <div className={rootClass} onClick={this.focusControl}>
-        {!!iconUrl && (
-          <img src={iconUrl} alt={placeholder} className='control__icon' />
-        )}
-        <label className='control__label'>{
-          !!label && <p className='control__headeing'>{label}</p>
-        }
+      <label className="control__label">
+        {!!label && <p className="control__headeing">{label}</p>}
+        <div className={controlInputWrapper} onClick={this.focusControl}>
+          {!!iconUrl && (
+            <img src={iconUrl} alt={placeholder} className="control__icon" />
+          )}
           <input
             ref={this.inputRef}
-            className='control__input'
+            className="control__input"
             type={type}
             value={value}
             name={name}
@@ -49,10 +47,10 @@ export class Input extends PureComponent {
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             placeholder={placeholder}
-            autoComplete='off'
+            autoComplete="off"
           />
-        </label>
-      </div>
+        </div>
+      </label>
     );
   }
 }
@@ -65,13 +63,13 @@ Input.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   className: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.string
 };
 
 Input.defaultProps = {
-  iconUrl: '',
-  type: 'text',
-  placeHolder: '',
-  className: '',
-  label: '',
+  iconUrl: "",
+  type: "text",
+  placeHolder: "",
+  className: "",
+  label: ""
 };

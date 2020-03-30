@@ -7,6 +7,10 @@ const languages = [
   {value: 'Jp', label: 'Japanese'},
   {value: 'Ua', label: 'Ukrainian'}
 ];
+const getYear = () => {
+  const date = new Date()
+  return date.getFullYear()
+}
 
 export const Footer = () => {
   return (
@@ -59,7 +63,7 @@ export const Footer = () => {
         <div className='footer__separator'></div>
 
         <div className='footer__bottom'>
-          <p className='footer__copyrights'>© 2019 Uber Technologies Inc.</p>
+          <p className='footer__copyrights'>© {getYear()} Uber Technologies Inc.</p>
           <div className='footer__misc'>
             <div className='footer__bottom-links links'>
               <a className='links__link' href='#'>

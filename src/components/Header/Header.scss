@@ -1,18 +1,18 @@
-$ipad-width : 768px;
+$tablet-width: 768px;
 $box-hightlight-grey: #272727;
 
 .header {
   position: sticky;
-  
+
   margin-bottom: 20px;
   padding: 16px 0;
   top: 0;
   overflow: hidden;
-  
+
   background-color: #fff;
   opacity: 0.95;
   box-shadow: 0 0 10px $box-hightlight-grey;
-  
+
   z-index: 3;
 
   &__inner {
@@ -23,35 +23,29 @@ $box-hightlight-grey: #272727;
   &__delivery-info {
     display: flex;
     margin-left: 4vw;
-    @media (max-width: $ipad-width) {
-      display: none;
-    }
   }
-  
+
   &__search {
     margin-left: auto;
-    @media (max-width: $ipad-width) {
-      display: none;
-    }
   }
 
   &__link {
     display: block;
     white-space: nowrap;
-    
+
     color: black;
-    
+
     margin-left: 40px;
     padding: 5px 12px;
 
     border-radius: 50px;
     box-shadow: 0 0 10px $box-hightlight-grey;
     transition: all 0.2s;
-    
+
     &:hover {
       text-decoration: underline;
     }
-    
+
     &--pressed {
       box-shadow: 0 0 5px $box-hightlight-grey;
       transform: scale(0.9);
@@ -61,9 +55,6 @@ $box-hightlight-grey: #272727;
   &__toggle-buttons {
     display: none;
     margin-left: auto;
-    @media (max-width: $ipad-width) {
-      display: flex;
-    }
   }
 
   &__toggle-btn {
@@ -73,11 +64,11 @@ $box-hightlight-grey: #272727;
     outline: none;
     cursor: pointer;
     border-radius: 50px;
-    
+
     &:not(:last-of-type) {
       margin-right: 24px;
     }
-    
+
     &:last-of-type {
       margin-right: -20px;
     }
@@ -85,25 +76,18 @@ $box-hightlight-grey: #272727;
     &:focus {
       background-color: #bdb5b5;
     }
-    
   }
-  
+
   &__toggle-icon {
     width: 24px;
     height: 24px;
   }
-
 }
 
 .mobile-controls {
   display: none;
   position: relative;
-  padding: 30px 0;
-  
-
-  @media (max-width: $ipad-width) {
-    display: flex;
-  }
+  padding: 15px 0;
 
   &__close {
     display: flex;
@@ -114,5 +98,40 @@ $box-hightlight-grey: #272727;
 
   &__close-btn {
     width: 24px;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .header {
+    &__delivery-info {
+      display: none;
+    }
+    
+    &__logo {
+      height: 14px;
+    }
+
+    &__search {
+      display: none;
+    }
+
+    &__toggle-buttons {
+      display: flex;
+    }
+
+    &__link {
+      font-size: 11px;
+    }
+
+    &__toggle-icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .mobile-controls {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
   }
 }

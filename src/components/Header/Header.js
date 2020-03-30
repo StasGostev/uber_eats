@@ -143,6 +143,7 @@ export class Header extends Component {
               {isMobileSearchVisible && (
                 <div className='header__mobile-search'>
                   <Input
+                    label='Find'
                     name='search'
                     onChange={this.handleChange}
                     value={search}
