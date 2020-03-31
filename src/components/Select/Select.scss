@@ -2,9 +2,10 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  border: 1px solid #979797;
+  width: 174px;
   padding: 8px 12px;
-
+  border: 1px solid #979797;
+  
   &__menu {
   position: relative;
   background-color: transparent;

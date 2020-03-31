@@ -16,6 +16,7 @@ input {
 
 a {
   text-decoration: none;
+  white-space: nowrap;
   color: white;
 }
 
@@ -25,10 +26,10 @@ button {
 }
 
 .content {
-  max-width: 1160px;
+  max-width: 1520px;
   padding: 0 34px;
   margin: 0 auto;
-  
+
   @media (max-width: 400px) {
     padding: 0 20px;
   }

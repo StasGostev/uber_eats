@@ -1,15 +1,13 @@
 import './Preloader.scss';
 import React from 'react';
+import { Spinner } from '../Spinner/Spinner';
+import { LoaderText } from '../LoaderText/LoaderText';
 
 export const Preloader = () => {
-  const text = 'loading';
   return (
     <div className='preloader'>
-      {[...text].reverse().map(char => (
-        <div className='preloader__char' key={char}>
-          {char}
-        </div>
-      ))}
+      <Spinner className='preloader__spinner'/>
+      <LoaderText className='preloader__loader-text'/>
     </div>
-  );
+  );  
 };

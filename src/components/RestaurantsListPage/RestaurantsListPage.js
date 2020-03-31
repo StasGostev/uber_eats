@@ -31,6 +31,7 @@ export class RestaurantsListPage extends Component {
     if (isLoading) {
       return <Preloader />;
     }
+
     if (error) {
       return <ErrorPage message={error} />;
     }

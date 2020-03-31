@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import '../ErrorPage/ErrorPage.scss';
 
 export const ErrorPage = ({ message }) => {
-  console.log(message);
   return (
     <div className='error'>
       <h3 className='error__heading'>Oooops!</h3>

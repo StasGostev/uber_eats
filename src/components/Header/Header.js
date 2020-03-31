@@ -10,20 +10,6 @@ export class Header extends Component {
     isPressed: false
   };
 
-  componentDidMount() {
-    const formatTime = () => {
-      const checkFormat = t => {
-        return t < 10 ? `0${t}` : t;
-      };
-      let date = new Date();
-      let hours = checkFormat(date.getHours());
-      let minutes = checkFormat(date.getMinutes());
-
-      return `${hours}:${minutes}`;
-    };
-
-    this.props.changeInputValue('time', formatTime());
-  }
 
   handleChange = ({ target }) => {
     this.props.changeInputValue(target.name, target.value);

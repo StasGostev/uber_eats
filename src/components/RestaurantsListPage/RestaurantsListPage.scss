@@ -3,4 +3,13 @@
   grid-template-columns: repeat(auto-fill, minmax(348px, 1fr));
   gap: 40px 20px;
   min-height: 80vh;
+
+  @media (max-width: 968px) {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    row-gap: 20px;
+  }
+  
+  @media (max-width: 400px) {
+    grid-template-columns: none;
+  }
 }

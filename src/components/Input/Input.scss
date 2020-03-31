@@ -1,6 +1,7 @@
 $box-hightlight-grey: #272727;
 
 .control {
+  
   &__input-wrapper {
     display: flex;
     align-items: center;
@@ -31,14 +32,19 @@ $box-hightlight-grey: #272727;
   }
 
   &__input {
-    @media (max-width: 980px) {
+    @media (max-width: 968px) {
       max-width: 80px;
     }
   }
+
   &__label {
     font-size: 14px;
     line-height: 16px;
     color: #626262;
+  }
+
+  &__headering {
+    margin-bottom: 5px;
   }
   & + & {
     margin-left: 10px;

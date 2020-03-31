@@ -1,0 +1,55 @@
+.loader-text {
+    font-size: 2em;
+    color: #292929;
+    margin: 20vh auto;
+    position: relative;
+    
+    @media (max-width: 350px) {
+        font-size: 0.1em;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 0.5em;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1em;
+    }
+
+    &__char {
+      position:absolute;
+      opacity:0;
+      font-family:Helvetica, Arial, sans-serif;
+      animation:moveChars 3s linear infinite;
+    
+      @for $i from 1 through 700 {
+        &:nth-child(#{$i}) { 
+          animation-delay: #{0.2 * $i}s;
+        }
+      } 
+    }
+  }
+   
+  @keyframes moveChars {
+    0% {
+      left: 10%;
+      opacity:0;
+      transform:rotate(180deg)
+    }
+      40% {
+          left: 41%;
+          transform:rotate(0);
+          opacity:1;
+      }
+      80% {
+          left:59%;
+          transform:rotate(0); 
+          opacity:1;
+      }
+      100% {
+          left:90%; 
+          transform:rotate(-180deg);
+          opacity:0;
+      }
+  }
+  

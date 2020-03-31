@@ -32,7 +32,7 @@ export class Input extends PureComponent {
 
     return (
       <label className="control__label">
-        {!!label && <p className="control__headeing">{label}</p>}
+        {!!label && <p className="control__headering">{label}</p>}
         <div className={controlInputWrapper} onClick={this.focusControl}>
           {!!iconUrl && (
             <img src={iconUrl} alt={placeholder} className="control__icon" />
