@@ -39,15 +39,14 @@ $box-hightlight-grey: #272727;
 
     border-radius: 50px;
     box-shadow: 0 0 10px $box-hightlight-grey;
-    transition: all 0.2s;
+    transition: all 0.3s;
 
     &:hover {
       text-decoration: underline;
     }
-
-    &--pressed {
+    &:active {
       box-shadow: 0 0 5px $box-hightlight-grey;
-      transform: scale(0.9);
+      transform: scale(0.9)
     }
   }
 
@@ -132,5 +131,17 @@ $box-hightlight-grey: #272727;
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
+  }
+}
+
+@keyframes press-btn {
+  50% {
+    box-shadow: 0 0 5px $box-hightlight-grey;
+    transform: scale(0.9);
+  }
+
+  100% {
+    box-shadow: 0 0 10px $box-hightlight-grey;
+    transform: scale(1);
   }
 }

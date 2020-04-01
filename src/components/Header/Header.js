@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import './Header.scss';
-import { Input } from '../Input/Input';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import "./Header.scss";
+import { Input } from "../Input/Input";
 
 export class Header extends Component {
   state = {
     isMobileSearchVisible: false,
     isMobileDeliveryVisible: false,
-    isPressed: false
   };
-
 
   handleChange = ({ target }) => {
     this.props.changeInputValue(target.name, target.value);
@@ -23,10 +21,6 @@ export class Header extends Component {
         isMobileDeliveryVisible: false
       };
     });
-  };
-
-  pressBtnHandler = (bool) => {
-    return this.setState({ isPressed: bool });
   };
 
   toggleDelivery = () => {
@@ -50,92 +44,83 @@ export class Header extends Component {
     const { address, time, search } = this.props.inputValues;
     const {
       isMobileDeliveryVisible,
-      isMobileSearchVisible,
-      isPressed
+      isMobileSearchVisible
     } = this.state;
-    const sigInClass = `header__link ${
-      isPressed ? `header__link--pressed` : ''
-    }`;
 
     return (
-      <header className='header'>
-        <div className='content'>
-          <div className='header__inner'>
+      <header className="header">
+        <div className="content">
+          <div className="header__inner">
             <img
-              src='./images/logo.svg'
-              alt='UberEats'
-              className='header__logo'
+              src="./images/logo.svg"
+              alt="UberEats"
+              className="header__logo"
             />
-            <div className='header__delivery-info'>
+            <div className="header__delivery-info">
               <Input
-                name='address'
+                name="address"
                 onChange={this.handleChange}
                 value={address}
-                placeholder='Address'
-                iconUrl='./images/place.svg'
+                placeholder="Address"
+                iconUrl="./images/place.svg"
               />
               <Input
-                name='time'
+                name="time"
                 onChange={this.handleChange}
                 value={time}
-                placeholder='Deliver now'
-                iconUrl='./images/time.svg'
-                type='time'
+                placeholder="Deliver now"
+                iconUrl="./images/time.svg"
+                type="time"
               />
             </div>
-            <div className='header__search'>
+            <div className="header__search">
               <Input
-                name='search'
+                name="search"
                 onChange={this.handleChange}
                 value={search}
-                placeholder='Search'
-                iconUrl='./images/search.svg'
-                className='header__search-input'
+                placeholder="Search"
+                iconUrl="./images/search.svg"
+                className="header__search-input"
               />
             </div>
-            <div className='header__toggle-buttons'>
+            <div className="header__toggle-buttons">
               <button
-                className='header__toggle-btn'
+                className="header__toggle-btn"
                 onClick={this.toggleDelivery}
               >
                 <img
-                  src='./images/place.svg'
-                  alt='location'
-                  className='header__toggle-icon'
+                  src="./images/place.svg"
+                  alt="location"
+                  className="header__toggle-icon"
                 />
               </button>
               <button
-                className='header__toggle-btn'
+                className="header__toggle-btn"
                 onClick={this.toggleSearch}
               >
                 <img
-                  src='./images/search.svg'
-                  alt='search'
-                  className='header__toggle-icon'
+                  src="./images/search.svg"
+                  alt="search"
+                  className="header__toggle-icon"
                 />
               </button>
             </div>
-            <a
-              className={sigInClass}
-              href='#'
-              onMouseDown={() => this.pressBtnHandler(true)}
-              onMouseUp={() => this.pressBtnHandler(false)}
-            >
+            <a className="header__link" href="#">
               Sign In
             </a>
           </div>
           {(isMobileDeliveryVisible || isMobileSearchVisible) && (
-            <div className='header__mobile-controls mobile-controls'>
+            <div className="header__mobile-controls mobile-controls">
               {isMobileSearchVisible && (
-                <div className='header__mobile-search'>
+                <div className="header__mobile-search">
                   <Input
-                    label='Find'
-                    name='search'
+                    label="Find"
+                    name="search"
                     onChange={this.handleChange}
                     value={search}
-                    placeholder='Search'
-                    iconUrl='./images/search.svg'
-                    className='header__search-input'
+                    placeholder="Search"
+                    iconUrl="./images/search.svg"
+                    className="header__search-input"
                   />
                 </div>
               )}
@@ -143,32 +128,32 @@ export class Header extends Component {
               {isMobileDeliveryVisible && (
                 <>
                   <Input
-                    label='Where'
-                    name='address'
+                    label="Where"
+                    name="address"
                     onChange={this.handleChange}
                     value={address}
-                    placeholder='Address'
-                    iconUrl='./images/place.svg'
+                    placeholder="Address"
+                    iconUrl="./images/place.svg"
                   />
                   <Input
-                    label='To'
-                    name='time'
+                    label="To"
+                    name="time"
                     onChange={this.handleChange}
                     value={time}
-                    placeholder='Deliver now'
-                    iconUrl='./images/time.svg'
-                    type='time'
+                    placeholder="Deliver now"
+                    iconUrl="./images/time.svg"
+                    type="time"
                   />
                 </>
               )}
               <button
-                className='mobile-controls__close'
+                className="mobile-controls__close"
                 onClick={this.closeMobileControls}
               >
                 <img
-                  src='./images/close.svg'
-                  alt='close'
-                  className='mobile-controls__close-btn'
+                  src="./images/close.svg"
+                  alt="close"
+                  className="mobile-controls__close-btn"
                 />
               </button>
             </div>
